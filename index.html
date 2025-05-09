@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>holdImg</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 2px;
+        font-family: sans-serif;
+        max-width: 400px;
+        max-height: 400px;
+        background: transparent;
+      }
+      #dropzone {
+        padding: 10px;
+        height: 110px;
+        text-align: center;
+        border: 2px dashed #aaa;
+        margin: 10px;
+      }
+      #fileList {
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        max-height: 200px;
+      }
+      .file-tile {
+        padding: 2px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        background: #f9f9f9;
+        position: relative;
+      }
+      .thumb {
+        max-height: 80px;
+        max-width: 80px;
+        object-fit: cover;
+      }
+      .remove-btn {
+        position: absolute;
+        top: 2px;
+        right: 5px;
+        cursor: pointer;
+        color: red;
+      }
+      .stack-view .file-tile {
+        position: absolute;
+        top: 120px;
+        left: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <select id="viewModeToggle">
+      <option value="stack" selected>Stack View</option>
+      <option value="individual">Individual View</option>
+    </select>
+    <div id="dropzone">Drop files here or press Ctrl+V to paste</div>
+    <div id="fileList"></div>
+    <script src="renderer.js"></script>
+  </body>
+</html>
