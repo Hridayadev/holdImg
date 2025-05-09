@@ -29,5 +29,11 @@
   "devDependencies": {
     "electron": "^28.3.3",
     "electron-builder": "^26.0.12"
-  }
+  },
+  "nsis": {
+  "oneClick": true,  
+  "perMachine": true, 
+  "allowToChangeInstallationDirectory": true,
+  "installerIcon": "assets/icon.ico"
+}
 }
