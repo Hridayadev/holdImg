@@ -1,4 +1,10 @@
-const { app, BrowserWindow, ipcMain, nativeImage, globalShortcut } = require("electron");
+const {
+  app,
+  BrowserWindow,
+  ipcMain,
+  nativeImage,
+  globalShortcut,
+} = require("electron");
 const path = require("path");
 
 process.on("unhandledRejection", (reason, promise) => {
@@ -26,7 +32,7 @@ function createWindow() {
   mainWindow.on("close", (event) => {
     if (!app.isQuiting) {
       event.preventDefault();
-      mainWindow.hide();  // Hide the window instead of closing
+      mainWindow.hide(); // Hide the window instead of closing
     }
   });
 }
