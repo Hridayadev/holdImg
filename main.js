@@ -15,8 +15,8 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 300,
-    height: 300,
+    width: 400,
+    height: 400,
     alwaysOnTop: true,
     autoHideMenuBar: true,
     icon: path.join(__dirname, "assets", "icon.png"),
@@ -28,11 +28,10 @@ function createWindow() {
 
   mainWindow.loadFile("index.html");
 
-  // Listen for the close event to gracefully handle quitting the app.
   mainWindow.on("close", (event) => {
     if (!app.isQuiting) {
       event.preventDefault();
-      mainWindow.hide(); // Hide the window instead of closing
+      mainWindow.hide();
     }
   });
 }
@@ -50,7 +49,6 @@ app.whenReady().then(() => {
     }
   });
 
-  // Quit the app when all windows are closed
   app.on("window-all-closed", () => {
     if (process.platform !== "darwin") {
       app.quit();
@@ -66,7 +64,6 @@ ipcMain.on("start-drag", (event, filePaths) => {
   win.webContents.startDrag({ files: filePaths, icon });
 });
 
-// Unregister global shortcuts before quitting the app
 app.on("will-quit", () => {
   globalShortcut.unregisterAll();
 });
